@@ -9,6 +9,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import '@fontsource/roboto'
 import { BackToHomepageLink } from '../components/Link.style'
+import { motion } from 'framer-motion'
 
 function convertDate(value: Date) {
   const arrMonth = [
@@ -35,13 +36,18 @@ function convertDate(value: Date) {
 export default function BlogDetails({ data }) {
   const blog: BlogDet = data.markdownRemark
   const { years, month, date } = convertDate(blog.frontmatter.date)
+  const detailsVariant = {
+    initVariant: { scale: 0.9, opacity: 0 },
+    animateVariant: { scale: 1, opacity: 1, transition: { duration: 0.4 } },
+    exit: { opacity: 0, scale: 0.9, transition: { duration: 0.4 } },
+  }
 
   const Date = styled.p`
     font-weight: 500;
     margin: 20px 0;
     color: ${props => props.theme.date};
   `
-  const Details = styled.div`
+  const DetailsAnimate = styled(motion.div)`
     padding-bottom: 50px;
     margin-top: 120px;
     margin-bottom: 30px;
@@ -62,7 +68,12 @@ export default function BlogDetails({ data }) {
   `
   return (
     <Layout>
-      <Details>
+      <DetailsAnimate
+        initial='initVariant'
+        animate='animateVariant'
+        exit='exit'
+        variants={detailsVariant}
+      >
         <Title details>{blog.frontmatter.title}</Title>
         <GatsbyImage
           image={getImage(
@@ -85,7 +96,7 @@ export default function BlogDetails({ data }) {
             </ContainerSubCategory>
           ))}
         </Container>
-      </Details>
+      </DetailsAnimate>
       <BackToHomepageLink to='/'>Back To Homepage</BackToHomepageLink>
     </Layout>
   )

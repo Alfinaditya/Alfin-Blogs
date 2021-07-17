@@ -7,10 +7,4 @@ export const Container = styled.div`
     css`
       margin-top: 30px;
     `};
-  ${props =>
-    props.blogs &&
-    css`
-      flex-wrap: wrap;
-      margin-top: 100px;
-    `};
 `

@@ -2,13 +2,13 @@ import React from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { Title } from './Title.style'
 import { BlogThumb } from '../ts/blog_interface'
-import { Container } from './Container.style'
 import { getImage, GatsbyImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import '@fontsource/roboto'
 import { StyledLInk } from './Link.style'
+import { AnimatePresence, motion, Variant, Variants } from 'framer-motion'
 
-const Blog = styled.div`
+const Blog = styled(motion.div)`
   width: 361px;
   height: 483px;
   margin-bottom: 41px;
@@ -16,6 +16,12 @@ const Blog = styled.div`
   padding-bottom: 14px;
   border-bottom: 1px solid #c4c4c4;
 `
+const BlogsContainerAnimate = styled(motion.div)`
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 100px;
+`
+
 const Category = styled.h4`
   color: ${props => props.theme.category};
   font-family: 'Roboto', sans-serif;
@@ -55,12 +61,39 @@ const Blogs = () => {
     }
   `)
 
+  const blogsContainerVariant: Variants = {
+    initVariant: { opacity: 0 },
+    animateVariant: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.4,
+      },
+    },
+    exit: {
+      opacity: 0,
+      transition: { staggerChildren: 0.4 },
+    },
+  }
+  const blogVariant: Variants = {
+    initVariant: { opacity: 0 },
+    animateVariant: {
+      opacity: 1,
+    },
+    exit: {
+      scale: 0.9,
+      opacity: 0,
+    },
+  }
   const blogs = data.allMarkdownRemark.nodes
-
   return (
-    <Container blogs>
+    <BlogsContainerAnimate
+      initial='initVariant'
+      animate='animateVariant'
+      exit='exit'
+      variants={blogsContainerVariant}
+    >
       {blogs.map((blog: BlogThumb) => (
-        <Blog key={blog.id}>
+        <Blog variants={blogVariant} key={blog.id}>
           <StyledLInk to={`/blog/${blog.frontmatter.slug}`}>
             <GatsbyImage
               image={getImage(
@@ -78,7 +111,7 @@ const Blogs = () => {
           </StyledLInk>
         </Blog>
       ))}
-    </Container>
+    </BlogsContainerAnimate>
   )
 }
 

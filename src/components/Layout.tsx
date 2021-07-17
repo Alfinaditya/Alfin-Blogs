@@ -5,7 +5,6 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import '@fontsource/roboto'
 import themes from './Theme.style'
 import SwitchTheme from './SwitchTheme'
-import { motion, AnimatePresence } from 'framer-motion'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -40,10 +39,7 @@ const Layout = ({ children }) => {
       <div>
         <GlobalStyle />
         <Navbar />
-        <AnimatePresence exitBeforeEnter>
-          <Content>{children}</Content>
-        </AnimatePresence>
-
+        <Content>{children}</Content>
         <SwitchTheme theme={theme} setTheme={setTheme} />
       </div>
     </ThemeProvider>
