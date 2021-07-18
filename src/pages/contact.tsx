@@ -13,23 +13,24 @@ const ContactContainerAnimate = styled(motion.div)`
   align-items: center;
   flex-wrap: wrap;
   font-family: 'Roboto';
-  /* background-color: red; */
 `
 const ContactForm = styled.div`
   width: 40%;
   display: flex;
-  /* background-color: green; */
   justify-content: space-around;
 `
 const ContactImageAnimate = styled(motion.div)`
   width: 513px;
   width: 392px;
 `
-const MessageForm = styled.div``
+const MessageForm = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 const PersonalDataForm = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
 `
 
 const Form = styled.div`
@@ -59,11 +60,13 @@ const Input = styled.input`
     border-bottom: 1px solid #2b3c96;
   }
 `
-
 const TextArea = styled.textarea`
   outline: none;
   font-family: 'Roboto';
   padding: 10px;
+  width: 349px;
+  resize: none;
+  height: 330px;
   background-color: #e4e4e4;
   border: 1px solid #e4e4e4;
 `
@@ -72,7 +75,7 @@ const ContainerButtonSend = styled.div`
 `
 const ButtonSend = styled.button`
   position: absolute;
-  right: 10px;
+  right: 50px;
   padding: 10px;
   color: #2b3c96;
   border: 1px solid #2b3c96;
@@ -130,14 +133,8 @@ const Contact = () => {
             </Form>
           </PersonalDataForm>
           <MessageForm>
-            <Form>
-              <Label textArea>Message</Label>
-              <TextArea
-                cols={15}
-                rows={10}
-                placeholder='Write your message...'
-              ></TextArea>
-            </Form>
+            <Label textArea>Message</Label>
+            <TextArea placeholder='Write your message...'></TextArea>
           </MessageForm>
         </ContactForm>
       </ContactContainerAnimate>

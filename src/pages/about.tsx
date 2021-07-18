@@ -77,9 +77,7 @@ const About = () => {
           <StaticImage
             src='../images/about.jpeg'
             alt='About me'
-            // duotune
             backgroundColor='transparent'
-            // placeholder='blurred'
             layout='fullWidth'
           />
         </AboutImageAnimate>
