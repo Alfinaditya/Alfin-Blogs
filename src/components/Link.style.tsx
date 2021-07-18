@@ -17,11 +17,20 @@ export const BrandLink = styled(StyledLInk)`
 `
 export const NavLink = styled(StyledLInk)`
   padding: 0 40px;
+  @media only screen and (max-width: 776px) {
+    font-family: 'Poppins';
+    font-weight: 900;
+    color: white;
+    margin-top: 15px;
+  }
   ${props =>
     props.bold &&
     css`
       font-weight: 900;
       color: #2b3c96;
+      @media only screen and (max-width: 776px) {
+        color: white;
+      }
     `};
 `
 

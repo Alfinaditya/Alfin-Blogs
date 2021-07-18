@@ -8,6 +8,7 @@ import '@fontsource/roboto/400.css'
 
 const ContactContainerAnimate = styled(motion.div)`
   margin-top: 90px;
+  /* background-color: red; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,24 +16,30 @@ const ContactContainerAnimate = styled(motion.div)`
   font-family: 'Roboto';
 `
 const ContactForm = styled.div`
-  width: 40%;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  /* background-color: purple; */
 `
 const ContactImageAnimate = styled(motion.div)`
   width: 513px;
   width: 392px;
+  margin-right: 50px;
+  @media only screen and (max-width: 1277px) {
+    display: none;
+  }
 `
 const MessageForm = styled.div`
   display: flex;
   flex-direction: column;
+  /* background-color: brown */
 `
 const PersonalDataForm = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 0 80px;
+  /* background-color: yellow; */
 `
 
 const Form = styled.div`
@@ -70,6 +77,7 @@ const TextArea = styled.textarea`
   resize: none;
   height: 330px;
   background-color: #e4e4e4;
+  border-radius: 5px;
   border: 1px solid #e4e4e4;
 `
 
