@@ -70,14 +70,13 @@ const TextArea = styled.textarea`
   background-color: #e4e4e4;
   border: 1px solid #e4e4e4;
 `
-const ContainerButtonSend = styled.div`
-  position: relative;
-`
+
 const ButtonSend = styled.button`
-  position: absolute;
-  right: 50px;
+  /* margin-top: 60px; */
   padding: 10px;
+  width: 166px;
   color: #2b3c96;
+  align-self: flex-end;
   border: 1px solid #2b3c96;
   background-color: ${props => props.theme.pageBackground};
   cursor: pointer;
@@ -135,12 +134,10 @@ const Contact = () => {
           <MessageForm>
             <Label textArea>Message</Label>
             <TextArea placeholder='Write your message...'></TextArea>
+            <ButtonSend>Send Message</ButtonSend>
           </MessageForm>
         </ContactForm>
       </ContactContainerAnimate>
-      <ContainerButtonSend>
-        <ButtonSend>Send Message</ButtonSend>
-      </ContainerButtonSend>
     </Layout>
   )
 }
