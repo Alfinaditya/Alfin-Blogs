@@ -18,6 +18,7 @@ const ContactForm = styled.div`
   width: 40%;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 `
 const ContactImageAnimate = styled(motion.div)`
   width: 513px;
@@ -31,6 +32,7 @@ const PersonalDataForm = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 0 80px;
 `
 
 const Form = styled.div`
@@ -72,7 +74,7 @@ const TextArea = styled.textarea`
 `
 
 const ButtonSend = styled.button`
-  /* margin-top: 60px; */
+  margin-top: 40px;
   padding: 10px;
   width: 166px;
   color: #2b3c96;
@@ -112,7 +114,7 @@ const Contact = () => {
           <StaticImage
             src='../images/about.jpeg'
             alt='About me'
-            backgroundColor='transparent'
+            // backgroundColor='transparent'
             layout='fullWidth'
           />
         </ContactImageAnimate>
