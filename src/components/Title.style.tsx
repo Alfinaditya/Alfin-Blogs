@@ -4,6 +4,7 @@ import '@fontsource/roboto/900.css'
 export const Title = styled.h1`
   //TODO:BUG
   font-family: 'Roboto';
+  font-weight: 900;
   ${props =>
     props.thumbnail &&
     css`

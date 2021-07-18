@@ -7,6 +7,8 @@ const LightTheme = {
   date: '#959595',
   subCategory: '#595959',
   content: '#000000',
+  form: '#FFFFFF',
+  inputForm: '#000000',
 }
 const DarkTheme = {
   pageBackground: '#181818',
@@ -17,7 +19,10 @@ const DarkTheme = {
   date: '#AFAAAA',
   subCategory: '#FFFFFF',
   content: '#FFFFFF',
+  form: '#181818',
+  inputForm: '#FFFFFF',
 }
+
 const themes = {
   light: LightTheme,
   dark: DarkTheme,
