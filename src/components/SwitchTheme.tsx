@@ -10,14 +10,13 @@ import {
 interface Props {
   theme: string
   setTheme: React.Dispatch<React.SetStateAction<string>>
+  windowGlobal: Window & typeof globalThis
 }
-const SwitchTheme: React.FC<Props> = ({ theme, setTheme }) => {
-  const windowGlobal = typeof window !== 'undefined' && window
+const SwitchTheme: React.FC<Props> = ({ windowGlobal, theme, setTheme }) => {
   const [switchToggler, setSwitchToggler] = useState<boolean>(
     theme == 'dark' ? true : false
   )
-  function themeToggler(checkbox?: boolean) {
-    // setTheme(theme === 'light' ? 'dark' : 'light')
+  function themeToggler() {
     if (windowGlobal.localStorage.getItem('userTheme') === null) {
       windowGlobal.localStorage.setItem('userTheme', 'dark')
       const dark = windowGlobal.localStorage.getItem('userTheme')
@@ -40,7 +39,7 @@ const SwitchTheme: React.FC<Props> = ({ theme, setTheme }) => {
           type='checkbox'
           onChange={e => {
             setSwitchToggler(e.target.checked)
-            themeToggler(e.target.checked)
+            themeToggler()
           }}
           checked={switchToggler}
         />

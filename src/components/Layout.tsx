@@ -21,7 +21,11 @@ const Layout = ({ children }) => {
         <GlobalStyle />
         <Navbar />
         <Content>{children}</Content>
-        <SwitchTheme theme={theme} setTheme={setTheme} />
+        <SwitchTheme
+          windowGlobal={windowGlobal}
+          theme={theme}
+          setTheme={setTheme}
+        />
       </div>
     </ThemeProvider>
   )
