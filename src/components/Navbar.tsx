@@ -67,7 +67,7 @@ const Navbar = () => {
   return (
     <Nav>
       <BrandLink to='/'>Alfin Aditya</BrandLink>
-      {/* TODO::BUG SCRENENRESOLUTION */}
+      {/* TODO::BUG Screen Resolution */}
       {(open || screenResolution > 776) && (
         <ContainerNavLink>
           <ChildContainerNavLink>

@@ -84,7 +84,7 @@ const SwitchTheme: React.FC<Props> = ({ theme, setTheme }) => {
       setTheme(light)
     }
   }
-  // TODO: INTALL FRAME MOTION,CREATED SWITCH WITH FRAME MOTION IN BRANCH
+
   return (
     <ContainerSwitch>
       <Switch>

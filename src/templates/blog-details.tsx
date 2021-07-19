@@ -33,6 +33,31 @@ function convertDate(value: Date) {
   return { years, month, date }
 }
 
+const PublishedDate = styled.p`
+  font-weight: 500;
+  margin: 20px 0;
+  color: ${props => props.theme.date};
+`
+const DetailsAnimate = styled(motion.div)`
+  padding-bottom: 50px;
+  margin-top: 120px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #c4c4c4;
+`
+const ContainerSubCategory = styled.div`
+  border: 1px solid #595959;
+  border-radius: 2px;
+  margin-right: 10px;
+`
+const SubCategory = styled.p`
+  padding: 8px 20px;
+  color: ${props => props.theme.subCategory};
+`
+
+const Content = styled.div`
+  color: ${props => props.theme.content};
+`
+
 export default function BlogDetails({ data }) {
   const blog: BlogDet = data.markdownRemark
   const { years, month, date } = convertDate(blog.frontmatter.date)
@@ -42,30 +67,7 @@ export default function BlogDetails({ data }) {
     exit: { opacity: 0, scale: 0.9, transition: { duration: 0.4 } },
   }
 
-  const Date = styled.p`
-    font-weight: 500;
-    margin: 20px 0;
-    color: ${props => props.theme.date};
-  `
-  const DetailsAnimate = styled(motion.div)`
-    padding-bottom: 50px;
-    margin-top: 120px;
-    margin-bottom: 30px;
-    border-bottom: 1px solid #c4c4c4;
-  `
-  const ContainerSubCategory = styled.div`
-    border: 1px solid #595959;
-    border-radius: 2px;
-    margin-right: 10px;
-  `
-  const SubCategory = styled.p`
-    padding: 8px 20px;
-    color: ${props => props.theme.subCategory};
-  `
-
-  const Content = styled.div`
-    color: ${props => props.theme.content};
-  `
+  // TODO:REFACTOR this unholy code
   return (
     <Layout>
       <DetailsAnimate
@@ -85,9 +87,9 @@ export default function BlogDetails({ data }) {
           }}
           alt={blog.frontmatter.title}
         />
-        <Date>
+        <PublishedDate>
           Published {month} {date}, {years}
-        </Date>
+        </PublishedDate>
         <Content dangerouslySetInnerHTML={{ __html: blog.html }} />
         <Container subCategories>
           {blog.frontmatter.subCategories.map(subCategory => (

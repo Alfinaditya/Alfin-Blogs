@@ -8,7 +8,6 @@ import '@fontsource/roboto/400.css'
 
 const ContactContainerAnimate = styled(motion.div)`
   margin-top: 90px;
-  /* background-color: red; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,7 +18,11 @@ const ContactForm = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  /* background-color: purple; */
+  @media only screen and (max-width: 776px) {
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
 `
 const ContactImageAnimate = styled(motion.div)`
   width: 513px;
@@ -32,14 +35,21 @@ const ContactImageAnimate = styled(motion.div)`
 const MessageForm = styled.div`
   display: flex;
   flex-direction: column;
-  /* background-color: brown */
+  @media only screen and (max-width: 776px) {
+    width: 95%;
+    margin-top: 20px;
+    align-items: center;
+  }
 `
 const PersonalDataForm = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 0 80px;
-  /* background-color: yellow; */
+  @media only screen and (max-width: 776px) {
+    width: 95%;
+    align-items: center;
+  }
 `
 
 const Form = styled.div`
@@ -47,6 +57,9 @@ const Form = styled.div`
   flex-direction: column;
   width: 263px;
   margin-top: 20px;
+  @media only screen and (max-width: 776px) {
+    width: 100%;
+  }
 `
 const Label = styled.label`
   font-size: 12px;
@@ -54,7 +67,12 @@ const Label = styled.label`
   ${props =>
     props.textArea &&
     css`
+      text-align: left;
       margin-bottom: 7px;
+
+      @media only screen and (max-width: 776px) {
+        margin-right: auto;
+      }
     `};
 `
 const Input = styled.input`
@@ -79,6 +97,9 @@ const TextArea = styled.textarea`
   background-color: #e4e4e4;
   border-radius: 5px;
   border: 1px solid #e4e4e4;
+  @media only screen and (max-width: 776px) {
+    width: 100%;
+  }
 `
 
 const ButtonSend = styled.button`
@@ -95,8 +116,11 @@ const ButtonSend = styled.button`
     background-color: #2b3c96;
     transition: 500ms;
   }
+  @media only screen and (max-width: 776px) {
+    width: 100%;
+  }
 `
-
+// TODO:About Page
 const Contact = () => {
   const containerVariant: Variants = {
     initVariant: { opacity: 0, scale: 0.9 },
