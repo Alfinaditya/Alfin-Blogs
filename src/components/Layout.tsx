@@ -13,8 +13,9 @@ const Content = styled.div`
 `
 const Layout = ({ children }) => {
   const windowGlobal = typeof window !== 'undefined' && window
-  const getTheme = windowGlobal.localStorage.getItem('userTheme')
-  const [theme, setTheme] = useState<string>(getTheme || 'light')
+  const [theme, setTheme] = useState<string>(
+    windowGlobal.localStorage.getItem('userTheme') || 'light'
+  )
   return (
     <ThemeProvider theme={theme === 'light' ? themes.light : themes.dark}>
       <div>
