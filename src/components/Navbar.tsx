@@ -13,16 +13,17 @@ import {
 } from '../styles/Navbar.style'
 
 const Navbar = () => {
+  const windowGlobal = typeof window !== 'undefined' && window
   const [open, setOpen] = useState(false)
-  const [screenResolution, setScreenResolution] = useState(
-    typeof window !== 'undefined' && window.innerWidth
-  )
   const location = useLocation()
+
   return (
     <Nav>
       <BrandLink to='/'>Alfin Aditya</BrandLink>
       {/* TODO::BUG Screen Resolution */}
-      {(open || screenResolution > 776) && (
+      {!open && windowGlobal.innerWidth < 775 ? (
+        <></>
+      ) : (
         <ContainerNavLink>
           <ChildContainerNavLink>
             {location.pathname === '/about' ? (
@@ -47,13 +48,13 @@ const Navbar = () => {
               <NavLink to='/projects'>Projects</NavLink>
             )}
             {/* it only show when the resolution is 776px */}
-            <CloseContainer onClick={() => setOpen(false)}>
+            <CloseContainer onClick={() => setOpen(!open)}>
               <CloseButton title='Exit' size='30px' />
             </CloseContainer>
           </ChildContainerNavLink>
         </ContainerNavLink>
       )}
-      <BurgerMenuContainer onClick={() => setOpen(true)}>
+      <BurgerMenuContainer onClick={() => setOpen(!open)}>
         <BurgerMenu size='30' title='Menu' />
       </BurgerMenuContainer>
     </Nav>

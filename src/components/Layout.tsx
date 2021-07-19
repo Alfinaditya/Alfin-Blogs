@@ -13,15 +13,12 @@ const Content = styled.div`
 `
 const Layout = ({ children }) => {
   const windowGlobal = typeof window !== 'undefined' && window
+  const [theme, setTheme] = useState<string>(
+    windowGlobal.localStorage.getItem('userTheme') === null
+      ? 'light'
+      : windowGlobal.localStorage.getItem('userTheme')
+  )
 
-  const [theme, setTheme] = useState<string>(undefined)
-  useEffect(() => {
-    setTheme(
-      windowGlobal.localStorage.getItem('userTheme') === null
-        ? 'light'
-        : windowGlobal.localStorage.getItem('userTheme')
-    )
-  }, [])
   return (
     <ThemeProvider theme={theme === 'light' ? themes.light : themes.dark}>
       <div>

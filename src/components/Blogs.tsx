@@ -17,6 +17,7 @@ const Blogs = () => {
   const [screenResolutions, setScreenResolutions] = useState(
     typeof window !== 'undefined' && window.innerWidth
   )
+
   const data = useStaticQuery(graphql`
     query Blogs {
       allMarkdownRemark {

@@ -13,9 +13,10 @@ interface Props {
   windowGlobal: Window & typeof globalThis
 }
 const SwitchTheme: React.FC<Props> = ({ windowGlobal, theme, setTheme }) => {
-  const [switchToggler, setSwitchToggler] = useState<boolean>(
+  const [switchToggler, setSwitchToggler] = useState<any>(
     theme == 'dark' ? true : false
   )
+
   function themeToggler() {
     if (windowGlobal.localStorage.getItem('userTheme') === null) {
       windowGlobal.localStorage.setItem('userTheme', 'dark')
