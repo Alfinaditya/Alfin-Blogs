@@ -14,7 +14,9 @@ import {
 
 const Navbar = () => {
   const [open, setOpen] = useState(false)
-  const [screenResolution, setScreenResolution] = useState(window.innerWidth)
+  const [screenResolution, setScreenResolution] = useState(
+    typeof window !== 'undefined' && window.innerWidth
+  )
   const location = useLocation()
   return (
     <Nav>
