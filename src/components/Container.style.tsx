@@ -5,6 +5,7 @@ export const Container = styled.div`
   ${props =>
     props.subCategories &&
     css`
+      flex-wrap: wrap;
       margin-top: 30px;
     `};
 `

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { Title } from './Title.style'
 import { BlogThumb } from '../ts/blog_interface'
@@ -6,7 +6,7 @@ import { getImage, GatsbyImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import '@fontsource/roboto'
 import { StyledLInk } from './Link.style'
-import { AnimatePresence, motion, Variant, Variants } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 
 const Blog = styled(motion.div)`
   width: 361px;
@@ -15,11 +15,24 @@ const Blog = styled(motion.div)`
   margin-right: 76px;
   padding-bottom: 14px;
   border-bottom: 1px solid #c4c4c4;
+  @media only screen and (max-width: 916px) {
+    margin: auto;
+    margin-bottom: 50px;
+  }
+  @media only screen and (max-width: 425px) {
+    padding: 10px;
+  }
 `
 const BlogsContainerAnimate = styled(motion.div)`
   display: flex;
   flex-wrap: wrap;
   margin-top: 100px;
+  @media only screen and (max-width: 840px) {
+    flex-direction: column;
+  }
+  @media only screen and (max-width: 425px) {
+    margin-top: 60px;
+  }
 `
 
 const Category = styled.h4`
@@ -39,7 +52,16 @@ const Description = styled.p`
   font-weight: 400;
   font-size: 12px;
 `
+const ContainerImage = styled.div`
+  width: 364px;
+  height: 250px;
+  @media only screen and (max-width: 366px) {
+    width: 100%;
+  }
+`
+
 const Blogs = () => {
+  const [screenResolutions, setScreenResolutions] = useState(window.innerWidth)
   const data = useStaticQuery(graphql`
     query Blogs {
       allMarkdownRemark {
@@ -52,7 +74,7 @@ const Blogs = () => {
             category
             mainImage {
               childImageSharp {
-                gatsbyImageData(width: 364, height: 250)
+                gatsbyImageData
               }
             }
           }
@@ -95,16 +117,23 @@ const Blogs = () => {
       {blogs.map((blog: BlogThumb) => (
         <Blog variants={blogVariant} key={blog.id}>
           <StyledLInk to={`/blog/${blog.frontmatter.slug}`}>
-            <GatsbyImage
-              image={getImage(
-                blog.frontmatter.mainImage.childImageSharp.gatsbyImageData
-              )}
-              alt={blog.frontmatter.title}
-            />
+            <ContainerImage>
+              <GatsbyImage
+                image={getImage(
+                  blog.frontmatter.mainImage.childImageSharp.gatsbyImageData
+                )}
+                alt={blog.frontmatter.title}
+              />
+            </ContainerImage>
             <Category>{blog.frontmatter.category}</Category>
             <Title thumbnail>{blog.frontmatter.title}</Title>
             <Description>
-              {blog.frontmatter.description.length >= 470
+              {screenResolutions <= 425
+                ? blog.frontmatter.description.length >= 420
+                  ? `${blog.frontmatter.description.slice(0, 420)}...`
+                  : blog.frontmatter.description
+                : // if the screen resolutions bigger than 425
+                blog.frontmatter.description.length >= 470
                 ? `${blog.frontmatter.description.slice(0, 470)}...`
                 : blog.frontmatter.description}
             </Description>

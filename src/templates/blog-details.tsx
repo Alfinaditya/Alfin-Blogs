@@ -43,11 +43,17 @@ const DetailsAnimate = styled(motion.div)`
   margin-top: 120px;
   margin-bottom: 30px;
   border-bottom: 1px solid #c4c4c4;
+  @media only screen and (max-width: 445px) {
+    margin-top: 80px;
+  }
 `
 const ContainerSubCategory = styled.div`
   border: 1px solid #595959;
   border-radius: 2px;
   margin-right: 10px;
+  @media only screen and (max-width: 430px) {
+    margin-bottom: 20px;
+  }
 `
 const SubCategory = styled.p`
   padding: 8px 20px;

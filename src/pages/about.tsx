@@ -18,25 +18,59 @@ const AboutContainerAnimate = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media only screen and (max-width: 1440px) {
+    margin-bottom: 100px;
+  }
+  @media only screen and (max-width: 1024px) {
+    flex-direction: column;
+  }
 `
 const AboutText = styled.div`
   width: 40%;
   margin-left: 60px;
+  @media only screen and (max-width: 1024px) {
+    margin-top: 50px;
+    width: 100%;
+  }
+  @media only screen and (max-width: 768px) {
+    margin: auto;
+    width: 90%;
+  }
+  @media only screen and (max-width: 425px) {
+    width: 90%;
+    margin: auto;
+  }
 `
 const AboutLink = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 22px;
   width: 30%;
+  @media only screen and (max-width: 460px) {
+    margin-top: 30px;
+    width: 40%;
+    /* background-color: red; */
+  }
+  @media only screen and (max-width: 425px) {
+    margin-top: 50px;
+    width: 90%;
+    /* background-color: red; */
+  }
 `
 const AboutImageAnimate = styled(motion.div)`
   width: 513px;
   width: 392px;
+  @media only screen and (max-width: 425px) {
+    width: 100%;
+  }
 `
 const Title = styled.h1`
   font-family: 'Poppins';
   font-weight: 700;
   color: #2b3c96;
+  @media only screen and (max-width: 768px) {
+    margin-top: 30px;
+  }
 `
 const Description = styled.p`
   font-family: 'Roboto';

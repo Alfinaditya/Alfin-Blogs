@@ -10,7 +10,7 @@ description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas u
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut neque in sapien cursus fringilla. Maecenas facilisis nisi et nibh interdum lacinia. Etiam et enim ac diam finibus convallis. Vestibulum sollicitudin volutpat velit, quis maximus risus iaculis quis. Duis auctor rutrum ligula, sit amet iaculis arcu porta sed. Aenean sollicitudin accumsan turpis et semper. Maecenas non nibh ac arcu lobortis imperdiet vel ac magna. Pellentesque auctor lacinia eros, nec porta leo mattis non. Quisque ultricies pulvinar turpis, in condimentum purus tempor non. Nullam sed erat sed mauris interdum commodo efficitur vitae elit. Aliquam et dolor a purus condimentum tempus. Aenean bibendum felis ac diam porta, et efficitur leo dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisi metus, rhoncus non laoreet nec, ultricies non tellus.
 
-```json
+```js
 {
   "firstName": "Alfin",
   "lastName": "Aditya",
@@ -18,8 +18,18 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut neque in sa
 }
 ```
 
-```javascript
-console.log('Hello World')
+```js
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
 ```
 
 Quisque condimentum ex eget quam egestas auctor. Vivamus at semper odio. Etiam tincidunt purus a ipsum malesuada, nec auctor nibh tristique. Cras id urna in lacus commodo ornare ac nec sapien. Phasellus ullamcorper sapien a leo dapibus convallis. Cras nisl massa, eleifend a lacus et, aliquam tincidunt mi. Mauris scelerisque blandit metus suscipit suscipit. Phasellus semper, neque condimentum ornare luctus, nibh ligula elementum dui, non rutrum tortor mi vel elit. Nullam at ipsum viverra augue congue volutpat sed ut ex.

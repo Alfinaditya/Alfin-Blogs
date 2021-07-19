@@ -13,6 +13,9 @@ const ContactContainerAnimate = styled(motion.div)`
   align-items: center;
   flex-wrap: wrap;
   font-family: 'Roboto';
+  @media only screen and (max-width: 1440px) {
+    margin-bottom: 50px;
+  }
 `
 const ContactForm = styled.div`
   display: flex;
