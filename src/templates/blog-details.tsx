@@ -3,13 +3,18 @@ import React from 'react'
 import Layout from '../components/Layout'
 import { BlogDet } from '../ts/blog_interface'
 import { uniqueId } from 'lodash'
-import { Title } from '../components/Title.style'
-import { Container } from '../components/Container.style'
+import { Title } from '../styles/Title.style'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import styled from 'styled-components'
-import '@fontsource/roboto'
-import { BackToHomepageLink } from '../components/Link.style'
-import { motion } from 'framer-motion'
+import {
+  PublishedDate,
+  DetailsAnimate,
+  ContainerSubCategories,
+  ContainerSubCategory,
+  SubCategory,
+  Content,
+} from '../styles/pages/BlogDetails.style'
+
+import { BackToHomepageLink } from '../styles/Link.style'
 
 function convertDate(value: Date) {
   const arrMonth = [
@@ -33,37 +38,6 @@ function convertDate(value: Date) {
   return { years, month, date }
 }
 
-const PublishedDate = styled.p`
-  font-weight: 500;
-  margin: 20px 0;
-  color: ${props => props.theme.date};
-`
-const DetailsAnimate = styled(motion.div)`
-  padding-bottom: 50px;
-  margin-top: 120px;
-  margin-bottom: 30px;
-  border-bottom: 1px solid #c4c4c4;
-  @media only screen and (max-width: 445px) {
-    margin-top: 80px;
-  }
-`
-const ContainerSubCategory = styled.div`
-  border: 1px solid #595959;
-  border-radius: 2px;
-  margin-right: 10px;
-  @media only screen and (max-width: 430px) {
-    margin-bottom: 20px;
-  }
-`
-const SubCategory = styled.p`
-  padding: 8px 20px;
-  color: ${props => props.theme.subCategory};
-`
-
-const Content = styled.div`
-  color: ${props => props.theme.content};
-`
-
 export default function BlogDetails({ data }) {
   const blog: BlogDet = data.markdownRemark
   const { years, month, date } = convertDate(blog.frontmatter.date)
@@ -73,7 +47,6 @@ export default function BlogDetails({ data }) {
     exit: { opacity: 0, scale: 0.9, transition: { duration: 0.4 } },
   }
 
-  // TODO:REFACTOR this unholy code
   return (
     <Layout>
       <DetailsAnimate
@@ -97,13 +70,13 @@ export default function BlogDetails({ data }) {
           Published {month} {date}, {years}
         </PublishedDate>
         <Content dangerouslySetInnerHTML={{ __html: blog.html }} />
-        <Container subCategories>
+        <ContainerSubCategories>
           {blog.frontmatter.subCategories.map(subCategory => (
             <ContainerSubCategory key={uniqueId('category_')}>
               <SubCategory>{subCategory}</SubCategory>
             </ContainerSubCategory>
           ))}
-        </Container>
+        </ContainerSubCategories>
       </DetailsAnimate>
       <BackToHomepageLink to='/'>Back To Homepage</BackToHomepageLink>
     </Layout>

@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 import styled from 'styled-components'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import '@fontsource/roboto'
-import themes from './Theme.style'
+import themes from '../styles/Theme.style'
 import SwitchTheme from './SwitchTheme'
 
 const GlobalStyle = createGlobalStyle`
@@ -14,7 +14,6 @@ const GlobalStyle = createGlobalStyle`
   }
   body{
     font-family:"Roboto";
-    /* transition:background-color 500ms; */
     background-color:${props => props.theme.pageBackground};
   }
   h1{
