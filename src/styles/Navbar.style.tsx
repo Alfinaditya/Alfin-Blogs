@@ -25,6 +25,7 @@ export const BurgerMenu = styled(Menu)`
 `
 export const ContainerNavLink = styled.div`
   @media only screen and (max-width: 776px) {
+    display: ${({ open }) => (open ? 'block' : 'none')};
     background-color: #2b3c96;
     left: 0;
     top: 0;
@@ -32,11 +33,6 @@ export const ContainerNavLink = styled.div`
     width: 100vw;
     position: absolute;
     z-index: 5;
-    ${props =>
-      props.hiddenburgerMenu &&
-      css`
-        display: none;
-      `}
   }
 `
 export const CloseButton = styled(CloseOutline)`
