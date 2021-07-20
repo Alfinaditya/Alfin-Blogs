@@ -13,7 +13,7 @@ export const ContactContainerAnimate = styled(motion.div)`
     margin-bottom: 50px;
   }
 `
-export const ContactForm = styled.div`
+export const ContactForm = styled.form`
   display: flex;
   justify-content: space-around;
   align-items: center;
