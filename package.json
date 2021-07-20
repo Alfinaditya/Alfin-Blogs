@@ -12,7 +12,9 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+
   },
+  
   "dependencies": {
     "@fontsource/poppins": "^4.5.0",
     "@fontsource/roboto": "^4.5.0",
@@ -34,6 +36,7 @@
     "styled-components": "^5.3.0",
     "styled-icons": "^10.35.0"
   },
+
   "devDependencies": {
     "@types/node": "^16.3.1",
     "@types/react": "^17.0.14",
@@ -46,5 +49,9 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
-  }
+  },
+   "resolutions": {
+      "styled-components": "^5"
+    }
 }
+

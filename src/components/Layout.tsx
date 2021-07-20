@@ -13,12 +13,21 @@ const Content = styled.div`
 `
 const Layout = ({ children }) => {
   const windowGlobal = typeof window !== 'undefined' && window
-  const [theme, setTheme] = useState<string>(
-    windowGlobal.localStorage.getItem('userTheme') === null
-      ? 'light'
-      : windowGlobal.localStorage.getItem('userTheme')
-  )
-
+  const [theme, setTheme] = useState<string>(undefined)
+  const [switchToggler, setSwitchToggler] = useState<boolean>(false)
+  useEffect(() => {
+    getTheme()
+    function getTheme() {
+      const item =
+        windowGlobal.localStorage.getItem('userTheme') === null
+          ? 'light'
+          : windowGlobal.localStorage.getItem('userTheme')
+      if (item) {
+        setTheme(item)
+        item == 'dark' ? setSwitchToggler(true) : false
+      }
+    }
+  }, [])
   return (
     <ThemeProvider theme={theme === 'light' ? themes.light : themes.dark}>
       <div>
@@ -27,7 +36,8 @@ const Layout = ({ children }) => {
         <Content>{children}</Content>
         <SwitchTheme
           windowGlobal={windowGlobal}
-          theme={theme}
+          switchToggler={switchToggler}
+          setSwitchToggler={setSwitchToggler}
           setTheme={setTheme}
         />
       </div>

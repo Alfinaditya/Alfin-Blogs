@@ -8,15 +8,17 @@ import {
 } from '../styles/SwitchTheme.style'
 
 interface Props {
-  theme: string
   setTheme: React.Dispatch<React.SetStateAction<string>>
   windowGlobal: Window & typeof globalThis
+  switchToggler: boolean
+  setSwitchToggler: React.Dispatch<React.SetStateAction<boolean>>
 }
-const SwitchTheme: React.FC<Props> = ({ windowGlobal, theme, setTheme }) => {
-  const [switchToggler, setSwitchToggler] = useState<any>(
-    theme == 'dark' ? true : false
-  )
-
+const SwitchTheme: React.FC<Props> = ({
+  switchToggler,
+  setSwitchToggler,
+  windowGlobal,
+  setTheme,
+}) => {
   function themeToggler() {
     if (windowGlobal.localStorage.getItem('userTheme') === null) {
       windowGlobal.localStorage.setItem('userTheme', 'dark')

@@ -5,7 +5,6 @@ import { StaticImage } from 'gatsby-plugin-image'
 import '@fontsource/poppins/700.css'
 import '@fontsource/roboto/400.css'
 import { Variants } from 'framer-motion'
-
 import {
   AboutContainerAnimate,
   AboutImageAnimate,
@@ -55,7 +54,6 @@ const About = () => {
           <StaticImage
             src='../images/about.jpeg'
             alt='About me'
-            backgroundColor='transparent'
             layout='fullWidth'
           />
         </AboutImageAnimate>

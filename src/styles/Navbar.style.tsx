@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Menu } from '@styled-icons/heroicons-solid/Menu'
 import { CloseOutline } from '@styled-icons/evaicons-outline/CloseOutline'
 import '@fontsource/poppins/900.css'
@@ -32,7 +32,11 @@ export const ContainerNavLink = styled.div`
     width: 100vw;
     position: absolute;
     z-index: 5;
-    /* display: none; */
+    ${props =>
+      props.hiddenburgerMenu &&
+      css`
+        display: none;
+      `}
   }
 `
 export const CloseButton = styled(CloseOutline)`
