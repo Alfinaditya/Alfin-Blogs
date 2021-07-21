@@ -5,9 +5,7 @@ import '@fontsource/poppins/700.css'
 import '@fontsource/roboto/400.css'
 import { Variants } from 'framer-motion'
 import {
-  AboutContainerAnimate,
   AboutImageAnimate,
-  AboutLink,
   AboutText,
   Description,
   Title,
@@ -16,11 +14,10 @@ import {
   InstagramLInk,
   LinkedinLink,
 } from '../styles/pages/About.style'
+import { Container, ContainerAnimate } from '../styles/Container.style'
 import Seo from '../components/Seo'
 
 const About = () => {
-  console.log(props => props.theme.content)
-
   const aboutVariant: Variants = {
     initVariant: { opacity: 0, scale: 0.9 },
     animateVariant: {
@@ -44,7 +41,8 @@ const About = () => {
   return (
     <Layout>
       <Seo title={'About'} image={'about.jpeg'} />
-      <AboutContainerAnimate
+      <ContainerAnimate
+        about={1}
         initial='initVariant'
         animate='animateVariant'
         exit='exit'
@@ -81,7 +79,7 @@ const About = () => {
             consequuntur nisi odio, nulla saepe vero illum, quisquam deserunt
             quia laborum totam. Lorem ipsum dolor, sit amet consectetur.
           </Description>
-          <AboutLink>
+          <Container aboutLink={1}>
             <YoutubeLink
               size='25px'
               title='Youtube'
@@ -120,9 +118,9 @@ const About = () => {
                 window.open('https://github.com/Alfinaditya', '_blank')
               }
             />
-          </AboutLink>
+          </Container>
         </AboutText>
-      </AboutContainerAnimate>
+      </ContainerAnimate>
     </Layout>
   )
 }

@@ -3,9 +3,9 @@ import Layout from '../components/Layout'
 import { Variants } from 'framer-motion'
 import { StaticImage } from 'gatsby-plugin-image'
 import Seo from '../components/Seo'
+import { Container, ContainerAnimate } from '../styles/Container.style'
 import {
   ButtonSend,
-  ContactContainerAnimate,
   ContactForm,
   ContactImageAnimate,
   Form,
@@ -31,7 +31,8 @@ const Contact = () => {
   return (
     <Layout>
       <Seo title={'Contact'} />
-      <ContactContainerAnimate
+      <ContainerAnimate
+        contact={1}
         initial='initVariant'
         animate='animateVariant'
         exit='exit'
@@ -76,7 +77,7 @@ const Contact = () => {
             <ButtonSend type='submit'> Send Message</ButtonSend>
           </MessageForm>
         </ContactForm>
-      </ContactContainerAnimate>
+      </ContainerAnimate>
     </Layout>
   )
 }

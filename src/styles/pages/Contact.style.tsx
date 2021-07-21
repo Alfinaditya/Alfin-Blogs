@@ -2,17 +2,6 @@ import styled, { css } from 'styled-components'
 import { motion } from 'framer-motion'
 import '@fontsource/roboto/400.css'
 
-export const ContactContainerAnimate = styled(motion.div)`
-  margin-top: 90px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  font-family: 'Roboto';
-  @media only screen and (max-width: 1440px) {
-    margin-bottom: 50px;
-  }
-`
 export const ContactForm = styled.form`
   display: flex;
   justify-content: space-around;

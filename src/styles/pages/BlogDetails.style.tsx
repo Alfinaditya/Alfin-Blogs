@@ -16,25 +16,10 @@ export const DetailsAnimate = styled(motion.div)`
     margin-top: 80px;
   }
 `
-export const ContainerSubCategories = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 30px;
-`
-
-export const ContainerSubCategory = styled.div`
-  border: 1px solid #595959;
-  border-radius: 2px;
-  margin-right: 10px;
-  @media only screen and (max-width: 430px) {
-    margin-bottom: 20px;
-  }
-`
 export const SubCategory = styled.p`
   padding: 8px 20px;
   color: ${props => props.theme.subCategory};
 `
-
 export const Content = styled.div`
   color: ${props => props.theme.content};
 `
