@@ -20,26 +20,6 @@ export const ContactImageAnimate = styled(motion.div)`
     display: none;
   }
 `
-export const MessageForm = styled.div`
-  display: flex;
-  flex-direction: column;
-  @media only screen and (max-width: 776px) {
-    width: 95%;
-    margin-top: 20px;
-    align-items: center;
-  }
-`
-export const PersonalDataForm = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 80px;
-  @media only screen and (max-width: 776px) {
-    width: 95%;
-    align-items: center;
-  }
-`
-
 export const Form = styled.div`
   display: flex;
   flex-direction: column;

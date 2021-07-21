@@ -5,23 +5,22 @@ import { useState } from 'react'
 import {
   BurgerMenu,
   BurgerMenuContainer,
-  ChildContainerNavLink,
   CloseButton,
-  ContainerNavLink,
   CloseContainer,
   Nav,
 } from '../styles/Navbar.style'
+import {
+  ContainerNavLink,
+  ChildContainerNavLink,
+} from '../styles/Container.style'
 
 const Navbar = () => {
-  const windowGlobal = typeof window !== 'undefined' && window
   const [open, setOpen] = useState(false)
   const location = useLocation()
 
   return (
     <Nav>
       <BrandLink to='/'>Alfin Aditya</BrandLink>
-      {/* TODO::BUG Screen Resolution */}
-
       <ContainerNavLink open={open}>
         <ChildContainerNavLink>
           {location.pathname === '/about' ? (

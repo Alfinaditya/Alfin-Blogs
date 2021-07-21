@@ -5,7 +5,11 @@ import { BlogDet } from '../ts/blog_interface'
 import { uniqueId } from 'lodash'
 import { Title } from '../styles/Title.style'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { Container, ContainerAnimate } from '../styles/Container.style'
+import {
+  BlogDetailsAnimate,
+  ContainerSubCategories,
+  ContainerSubCategory,
+} from '../styles/Container.style'
 import {
   PublishedDate,
   SubCategory,
@@ -47,8 +51,7 @@ export default function BlogDetails({ data }) {
 
   return (
     <Layout>
-      <ContainerAnimate
-        blogDetails={1}
+      <BlogDetailsAnimate
         initial='initVariant'
         animate='animateVariant'
         exit='exit'
@@ -69,14 +72,14 @@ export default function BlogDetails({ data }) {
           Published {month} {date}, {years}
         </PublishedDate>
         <Content dangerouslySetInnerHTML={{ __html: blog.html }} />
-        <Container subCategories={1}>
+        <ContainerSubCategories>
           {blog.frontmatter.subCategories.map(subCategory => (
-            <Container subCategory={1} key={uniqueId('category_')}>
+            <ContainerSubCategory key={uniqueId('category_')}>
               <SubCategory>{subCategory}</SubCategory>
-            </Container>
+            </ContainerSubCategory>
           ))}
-        </Container>
-      </ContainerAnimate>
+        </ContainerSubCategories>
+      </BlogDetailsAnimate>
       <BackToHomepageLink to='/'>Back To Homepage</BackToHomepageLink>
     </Layout>
   )

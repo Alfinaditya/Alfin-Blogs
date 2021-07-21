@@ -14,7 +14,7 @@ import {
   InstagramLInk,
   LinkedinLink,
 } from '../styles/pages/About.style'
-import { Container, ContainerAnimate } from '../styles/Container.style'
+import { AboutAnimate, ContainerAboutLink } from '../styles/Container.style'
 import Seo from '../components/Seo'
 
 const About = () => {
@@ -41,8 +41,7 @@ const About = () => {
   return (
     <Layout>
       <Seo title={'About'} image={'about.jpeg'} />
-      <ContainerAnimate
-        about={1}
+      <AboutAnimate
         initial='initVariant'
         animate='animateVariant'
         exit='exit'
@@ -79,7 +78,7 @@ const About = () => {
             consequuntur nisi odio, nulla saepe vero illum, quisquam deserunt
             quia laborum totam. Lorem ipsum dolor, sit amet consectetur.
           </Description>
-          <Container aboutLink={1}>
+          <ContainerAboutLink>
             <YoutubeLink
               size='25px'
               title='Youtube'
@@ -118,9 +117,9 @@ const About = () => {
                 window.open('https://github.com/Alfinaditya', '_blank')
               }
             />
-          </Container>
+          </ContainerAboutLink>
         </AboutText>
-      </ContainerAnimate>
+      </AboutAnimate>
     </Layout>
   )
 }

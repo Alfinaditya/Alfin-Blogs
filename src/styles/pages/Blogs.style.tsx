@@ -17,17 +17,17 @@ export const Blog = styled(motion.div)`
     padding: 10px;
   }
 `
-export const BlogsContainerAnimate = styled(motion.div)`
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 100px;
-  @media only screen and (max-width: 840px) {
-    flex-direction: column;
-  }
-  @media only screen and (max-width: 425px) {
-    margin-top: 60px;
-  }
-`
+// export const BlogsContainerAnimate = styled(motion.div)`
+//   display: flex;
+//   flex-wrap: wrap;
+//   margin-top: 100px;
+//   @media only screen and (max-width: 840px) {
+//     flex-direction: column;
+//   }
+//   @media only screen and (max-width: 425px) {
+//     margin-top: 60px;
+//   }
+// `
 
 export const Category = styled.h4`
   color: ${props => props.theme.category};

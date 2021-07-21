@@ -4,12 +4,12 @@ import { Title } from '../styles/Title.style'
 import { BlogThumb } from '../ts/blog_interface'
 import { getImage, GatsbyImage } from 'gatsby-plugin-image'
 import {
-  BlogsContainerAnimate,
   Blog,
   Category,
   ContainerImage,
   Description,
 } from '../styles/pages/Blogs.style'
+import { BlogsAnimate } from '../styles/Container.style'
 import { StyledLInk } from '../styles/Link.style'
 import { Variants } from 'framer-motion'
 
@@ -64,7 +64,7 @@ const Blogs = () => {
   }
   const blogs = data.allMarkdownRemark.nodes
   return (
-    <BlogsContainerAnimate
+    <BlogsAnimate
       initial='initVariant'
       animate='animateVariant'
       exit='exit'
@@ -88,15 +88,14 @@ const Blogs = () => {
                 ? blog.frontmatter.description.length >= 420
                   ? `${blog.frontmatter.description.slice(0, 420)}...`
                   : blog.frontmatter.description
-                : // if the screen resolutions bigger than 425
-                blog.frontmatter.description.length >= 470
+                : blog.frontmatter.description.length >= 470
                 ? `${blog.frontmatter.description.slice(0, 470)}...`
                 : blog.frontmatter.description}
             </Description>
           </StyledLInk>
         </Blog>
       ))}
-    </BlogsContainerAnimate>
+    </BlogsAnimate>
   )
 }
 

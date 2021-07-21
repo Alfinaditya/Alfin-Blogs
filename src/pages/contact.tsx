@@ -3,7 +3,11 @@ import Layout from '../components/Layout'
 import { Variants } from 'framer-motion'
 import { StaticImage } from 'gatsby-plugin-image'
 import Seo from '../components/Seo'
-import { Container, ContainerAnimate } from '../styles/Container.style'
+import {
+  ContactAnimate,
+  ContainerPersonalData,
+  ContainerMessage,
+} from '../styles/Container.style'
 import {
   ButtonSend,
   ContactForm,
@@ -11,8 +15,6 @@ import {
   Form,
   Input,
   Label,
-  MessageForm,
-  PersonalDataForm,
   TextArea,
 } from '../styles/pages/Contact.style'
 
@@ -31,8 +33,7 @@ const Contact = () => {
   return (
     <Layout>
       <Seo title={'Contact'} />
-      <ContainerAnimate
-        contact={1}
+      <ContactAnimate
         initial='initVariant'
         animate='animateVariant'
         exit='exit'
@@ -42,7 +43,6 @@ const Contact = () => {
           <StaticImage
             src='../images/about.jpeg'
             alt='About me'
-            // backgroundColor='transparent'
             layout='fullWidth'
           />
         </ContactImageAnimate>
@@ -54,7 +54,7 @@ const Contact = () => {
         >
           <input type='hidden' name='bot-field' />
           <input type='hidden' name='form-name' value='contact' />
-          <PersonalDataForm>
+          <ContainerPersonalData>
             <Form>
               <Label>First Name</Label>
               <Input name='firstName' type='text' />
@@ -67,17 +67,17 @@ const Contact = () => {
               <Label>Email</Label>
               <Input name='email' type='email' />
             </Form>
-          </PersonalDataForm>
-          <MessageForm>
+          </ContainerPersonalData>
+          <ContainerMessage>
             <Label textArea>Message</Label>
             <TextArea
               name='message'
               placeholder='Write your message...'
             ></TextArea>
             <ButtonSend type='submit'> Send Message</ButtonSend>
-          </MessageForm>
+          </ContainerMessage>
         </ContactForm>
-      </ContainerAnimate>
+      </ContactAnimate>
     </Layout>
   )
 }
