@@ -113,4 +113,10 @@ module.exports = {
       },
     },
   ],
+  siteMetadata: {
+    title: 'Alfin Blogs',
+    description: 'A simple blog build with Gatsby',
+    image: '/images/about.jpeg',
+    url: 'https://alfinblogs.netlify.app/',
+  },
 }

@@ -1,6 +1,5 @@
 import React from 'react'
 import Layout from '../components/Layout'
-import { Helmet } from 'react-helmet'
 import { StaticImage } from 'gatsby-plugin-image'
 import '@fontsource/poppins/700.css'
 import '@fontsource/roboto/400.css'
@@ -17,6 +16,7 @@ import {
   InstagramLInk,
   LinkedinLink,
 } from '../styles/pages/About.style'
+import Seo from '../components/Seo'
 
 const About = () => {
   console.log(props => props.theme.content)
@@ -43,7 +43,7 @@ const About = () => {
 
   return (
     <Layout>
-      <Helmet title='About me' defer={false} />
+      <Seo title={'About'} image={'about.jpeg'} />
       <AboutContainerAnimate
         initial='initVariant'
         animate='animateVariant'

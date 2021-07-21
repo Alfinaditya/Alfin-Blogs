@@ -1,11 +1,11 @@
 import React from 'react'
 import Layout from '../components/Layout'
-import { Helmet } from 'react-helmet'
+import Seo from '../components/Seo'
 
 const Projects = () => {
   return (
     <Layout>
-      <Helmet title='My projects' defer={false} />
+      <Seo title={'My projects'} />
       <div>Projects</div>
     </Layout>
   )
